@@ -1,9 +1,10 @@
 app-id: net.gradator.gtkatlantic
 runtime: org.freedesktop.Platform
-runtime-version: 22.08
+runtime-version: 25.08
 sdk: org.freedesktop.Sdk
 command: gtkatlantic
 rename-icon: gtkatlantic
+copy-icon: true
 rename-desktop-file: gtkatlantic.desktop
 finish-args:
   - --device=dri
@@ -16,10 +17,10 @@ modules:
   - name: gtkatlantic
     buildsystem: autotools
     post-install:
-      - install -Dm0644 net.gradator.gtkatlantic.metainfo.xml ${FLATPAK_DEST}/share/metainfo/net.gradator.gtkatlantic.metainfo.xml
+      - install -Dm0644 ${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
     sources:
       - type: archive
-        url: http://download.tuxfamily.org/gtkatlantic/downloads/v0.6/gtkatlantic-0.6.3.tar.gz
+        url: https://web.archive.org/web/20221127221428/http://download.tuxfamily.org/gtkatlantic/downloads/v0.6/gtkatlantic-0.6.3.tar.gz
         sha256: b24e20a47688459909c08c01a01095bcc18d6a2568c7fa91115e0e0adbf734e5
       - type: file
         path: net.gradator.gtkatlantic.metainfo.xml
